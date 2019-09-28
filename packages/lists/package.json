@@ -1,0 +1,39 @@
+{
+  "name": "lists",
+  "version": "0.0.1",
+  "description": "Lists",
+  "keywords": [
+    "linked",
+    "list",
+    "lists",
+    "linkedlist",
+    "linkedlists"
+  ],
+  "author": "Francis Sirizzotti <fsirizzotti@squarespace.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/linked-lists.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.squarespace.net:8443"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test-reference-impls": "TEST_SET=reference mocha",
+    "test-all": "TEST_SET=all mocha"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "mocha-simple-html-reporter": "^1.1.0"
+  },
+  "dependencies": {
+  }
+}
+

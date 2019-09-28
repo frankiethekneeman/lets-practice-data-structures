@@ -1,0 +1,15 @@
+{
+  "reporter": "mochawesome",
+  "reporter-option": [
+    "autoOpen",
+    "showPassed=true",
+    "showSkipped=false",
+    "showPending=false",
+    "showHooks=always",
+    "charts",
+    "consoleReporter=dot",
+    "reportTitle=Lists Suite",
+    "reportPageTitle=Lists Suite"
+  ]
+}
+

@@ -1,0 +1,6 @@
+mochawesome-report
+packages/*/mochawesome-report
+report.html
+packages/*/report.html
+node_modules
+packages/*/node_modules

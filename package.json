@@ -1,0 +1,19 @@
+{
+  "name": "lets-learn-data-structures",
+  "version": "0.0.1",
+  "description": "Learn Data Structures through TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "test-reference-impls": "TEST_SET=reference mocha",
+    "test-all": "TEST_SET=all mocha"
+  },
+  "author": "Francis Sirizzotti",
+  "license": "ISC",
+  "devDependencies": {
+    "lerna": "^3.16.4",
+    "mocha": "^6.2.0",
+    "mocha-simple-html-reporter": "^1.1.0",
+    "mochawesome": "^4.1.0"
+  }
+}

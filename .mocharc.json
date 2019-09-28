@@ -1,0 +1,16 @@
+{
+  "reporter": "mochawesome",
+  "spec": "packages/*/test/**/*.js",
+  "reporter-option": [
+    "autoOpen",
+    "showPassed=true",
+    "showFailed=false",
+    "showSkipped=false",
+    "showPending=false",
+    "showHooks=always",
+    "charts",
+    "consoleReporter=dot",
+    "reportTitle=Data Structures",
+    "reportPageTitle=Data Structures"
+  ]
+}
