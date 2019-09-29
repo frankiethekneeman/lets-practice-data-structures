@@ -223,7 +223,7 @@ class NaiveDoublyLinkedList {
    *  Return the number of items in the list.
    *  
    *  @return the size of the list
-   *  @timeComplexity O(1)
+   *  @timeComplexity O(n)
    */
   size() {
     let length = 0,

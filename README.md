@@ -21,7 +21,7 @@ it's the only available datastructure currently.
 ## Datastructures Available and Planned
 
 ### Lists
-- [ ] ArrayList
+- [x] ArrayList
 - [x] SinglyLinkedList
 - [x] DoublyLinkedList
 - [ ] Stack

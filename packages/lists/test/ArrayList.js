@@ -1,15 +1,14 @@
 const referenceImplementations = [
-  require('../lib/doublyLinked/NaiveDoublyLinkedList')
-  , require('../lib/doublyLinked/LengthTrackingDoublyLinkedList'),
+  require('../lib/array/ReferenceArrayList')
 ];
 const userImplementations = [
-  require('../src/DoublyLinkedList')
+  require('../src/ArrayList')
 ];
 const testListImplementation = require('./testListImplementation');
 const {getTestSet} = require('./utils');
 
 
-describe('Doubly Linked', () => {
+describe('Array', () => {
   getTestSet(userImplementations, referenceImplementations)
     .forEach(testListImplementation)
 });

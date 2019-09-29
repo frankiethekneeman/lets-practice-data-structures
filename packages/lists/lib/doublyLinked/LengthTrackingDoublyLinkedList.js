@@ -1,8 +1,9 @@
-class NaiveDoublyLinkedList {
+class LengthTrackingDoublyLinkedList {
 
   constructor() {
     this._head = null;
     this._tail = null;
+    this._size = 0;
   }
 
   /**
@@ -13,20 +14,20 @@ class NaiveDoublyLinkedList {
     if (!item) {
       throw `${item} is not storable`;
     }
+    if (i > this._size || i < 0) {
+      throw `${i} is outside the bounds of this list`;
+    }
     if (i === 0) {
       return this.prepend(item);
+    }
+    if (i === this._size) {
+      return this.append(item);
     }
     let position = 0,
       current = this._head;
     while (position < i && current != null) {
       position++;
       current = current.next;
-    }
-    if (position != i) {
-      throw `${i} is outside the bounds of this list`;
-    }
-    if (current === null) {
-      return this.append(item);
     }
     const newNode = {
       item: item,
@@ -35,6 +36,7 @@ class NaiveDoublyLinkedList {
     };
     newNode.next.prev = newNode;
     newNode.prev.next = newNode;
+    this._size++;
   }
 
   /**
@@ -54,6 +56,7 @@ class NaiveDoublyLinkedList {
       prev: this._tail
     }
     this._tail.prev.next = this._tail;
+    this._size++;
   }
 
   /**
@@ -74,6 +77,7 @@ class NaiveDoublyLinkedList {
     } else {
       this._head.next.prev = this._head;
     }
+    this._size++;
   }
 
   /**
@@ -84,8 +88,14 @@ class NaiveDoublyLinkedList {
     if (this._head === null) {
       throw "Cannot Remove from an empty list.";
     }
+    if (i < 0 || i >= this._size) {
+      throw `${i} is outside the bounds of this list`;
+    }
     if (i === 0) {
       return this.removeFirst();
+    }
+    if (i === this._size - 1) {
+      return this.removeLast();
     }
     let position = 0,
       current = this._head;
@@ -93,14 +103,12 @@ class NaiveDoublyLinkedList {
       position++;
       current = current.next;
     }
-    if (position != i) {
-      throw `${i} is outside the bounds of this list`;
-    }
     if (current.next === null) {
       return this.removeLast();
     }
     current.prev.next = current.next;
     current.next.prev = current.prev;
+    this._size--;
     return current.item;
   }
 
@@ -119,6 +127,7 @@ class NaiveDoublyLinkedList {
     } else {
       this._head.prev = null;
     }
+    this._size--;
     return toReturn;
   }
 
@@ -136,8 +145,8 @@ class NaiveDoublyLinkedList {
     const toReturn = this._tail.item;
     this._tail = this._tail.prev;
     this._tail.next = null;
+    this._size--;
     return toReturn;
-    return null;
   }
 
   /**
@@ -164,6 +173,7 @@ class NaiveDoublyLinkedList {
     } else {
       current.next.prev = current.prev;
       current.prev.next = current.next;
+      this._size--;
     }
 
     return position;
@@ -226,13 +236,7 @@ class NaiveDoublyLinkedList {
    *  @timeComplexity O(1)
    */
   size() {
-    let length = 0,
-      current = this._head; 
-    while(current !== null) {
-      current = current.next;
-      length++;
-    }
-    return length;
+    return this._size;
   }
 
   /******************
@@ -315,7 +319,7 @@ class NaiveDoublyLinkedList {
    *  @spaceComplexity O(n)
    */
   sorted(comparator) {
-    const toReturn = new NaiveDoublyLinkedList();
+    const toReturn = new LengthTrackingDoublyLinkedList();
     let current = this._tail;
     while(current != null) {
       toReturn.prepend(current.item);
@@ -340,5 +344,5 @@ class NaiveDoublyLinkedList {
   }
 }
 
-module.exports = NaiveDoublyLinkedList;
+module.exports = LengthTrackingDoublyLinkedList;
 

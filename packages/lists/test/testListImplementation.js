@@ -1,5 +1,6 @@
 const expect = require('chai').expect;
 const {randInt, seq, Item} = require('./utils');
+const addContext = require('mochawesome/addContext');
 
 const anItem = new Item();
 const anotherItem = new Item();
