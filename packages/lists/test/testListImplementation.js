@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
-const {randInt, seq, Item} = require('./utils');
-const addContext = require('mochawesome/addContext');
+const {randInt, seq, Item, clone} = require('./utils');
+const RandomBehaviourTester = require('./RandomBehaviourTester');
 
 const anItem = new Item();
 const anotherItem = new Item();
@@ -332,5 +332,158 @@ module.exports = function(ListImpl) {
         }
       });
     });
+    describe('randomBehaviour', () => {
+      it('works', function () {
+        const list = new ListImpl();
+        const randomizer = new RandomBehaviourTester(list, [], randomStepGenerators, function (underTest, result) {
+          expect(underTest.toArray()).to.deep.equal(result);
+        }, this);
+        randomizer.test(10* randomStepGenerators.length);
+      });
+    });
   });
 }
+/**
+ *  This is a series of functions that generate list modifications for the random test.
+ *  Returns an object shaped like:
+ *  {
+ *    name //string name of the function
+ *    arguments // an array of arguments for the item
+ *    returnValue // the expected return value for the item
+ *    result // the expected state of the list after the operation, as an array.
+ *  }
+ *  
+ *  Currently not supported - exceptional behaviour.
+ */
+const randomStepGenerators = [
+
+  //insert(i, item)
+  function(before) {
+    const index = Math.floor(Math.random() * (before.length + 1));
+    const item = new Item();
+    return {
+      name: 'insert',
+      args: [index, item],
+      returnValue: undefined,
+      result: [...before.slice(0,index), item, ...before.slice(index)],
+    };
+  },
+
+  //append(item)
+  function(before) {
+    const item = new Item();
+    return {
+      name: 'append',
+      args: [item],
+      returnValue: undefined,
+      result: [...before, item],
+    };
+  },
+
+  //prepend(item)
+  function(before) {
+    const item = new Item();
+    return {
+      name: 'prepend',
+      args: [item],
+      returnValue: undefined,
+      result: [item, ...before],
+    };
+  },
+
+  //remove(i)
+  function(before) {
+    if (before.length < 1) {
+      return null;
+    }
+    const index = Math.floor(Math.random() * before.length);
+    return {
+      name: 'remove',
+      args: [index],
+      returnValue: clone(before[index]),
+      result: [...before.slice(0, index), ...before.slice(index + 1)],
+    };
+  },
+
+  //removeFirst()
+  function(before) {
+    return {
+      name: 'removeFirst',
+      args: [],
+      returnValue: clone(before[0] || null),
+      result: before.slice(1),
+    };
+  },
+
+  //removeLast()
+  function(before) {
+    return {
+      name: 'removeLast',
+      args: [],
+      returnValue: clone(before[before.length - 1] || null),
+      result: before.slice(0, before.length - 1),
+    };
+  },
+
+  //removeItem(item)
+
+  //contains(item)
+
+  //peek(i)
+  function(before) {
+    if (before.length < 1) {
+      return null;
+    }
+    const index = Math.floor(Math.random() * before.length);
+    return {
+      name: 'peek',
+      args: [index],
+      returnValue: clone(before[index]),
+      result: [...before]
+    };
+  },
+
+  //peekFirst()
+  function(before) {
+    return {
+      name: 'peekFirst',
+      args: [],
+      returnValue: clone(before[0] || null),
+      result: [...before],
+    };
+  },
+
+  //peekLast()
+  function(before) {
+    return {
+      name: 'peekLast',
+      args: [],
+      returnValue: clone(before[before.length - 1] || null),
+      result: [...before],
+    };
+  },
+
+  //size()
+  function(before) {
+    return {
+      name: 'size',
+      args: [],
+      returnValue: before.length,
+      result: [...before],
+    };
+  },
+
+  //sort(comparator)
+  function(before) {
+    return {
+      name: 'sort',
+      args: [(a, b) => a.value - b.value],
+      returnValue: undefined,
+      result: [...before].sort((a, b) => a.value - b.value),
+    };
+  },
+
+  //sorted(comparator)
+
+  //toArray()
+]

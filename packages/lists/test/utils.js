@@ -17,6 +17,10 @@ function getTestSet(userImplementations, referenceImplementations) {
   return implMap[(process.env.TEST_SET || '').toLowerCase()] || userImplementations
 }
 
+function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
 class Item {
   constructor() {
     this.value = Math.random();
@@ -26,7 +30,6 @@ class Item {
   }
 }
 
-
 module.exports = {
-  randInt, seq, getTestSet, Item
+  randInt, seq, getTestSet, Item, clone
 }
