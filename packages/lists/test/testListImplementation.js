@@ -343,17 +343,18 @@ module.exports = function(ListImpl) {
     });
   });
 }
+
 /**
  *  This is a series of functions that generate list modifications for the random test.
  *  Returns an object shaped like:
  *  {
- *    name //string name of the function
- *    arguments // an array of arguments for the item
+ *    name        //string name of the function
+ *    arguments   // an array of arguments for the item
  *    returnValue // the expected return value for the item
- *    result // the expected state of the list after the operation, as an array.
+ *    result      // the expected state of the list after the operation, as an array.
+ *    shouldError // true if and only if the call should throw an exception.  All
+ *                // exceptions leave the state unchanged.
  *  }
- *  
- *  Currently not supported - exceptional behaviour.
  */
 const randomStepGenerators = [
 
@@ -426,13 +427,35 @@ const randomStepGenerators = [
   },
 
   //removeItem(item)
+  function(before) {
+    const index = Math.floor(Math.random() * (before.length + 1))
+    return {
+      name: 'removeItem',
+      args: [clone(before[index] || new Item())],
+      returnValue: index === before.length ? -1 :  index,
+      result: [...before.slice(0, index), ...before.slice(index + 1)]
+    };
+  },
 
   //contains(item)
+  function(before) {
+    const index = Math.floor(Math.random() * (before.length + 1))
+    return {
+      name: 'contains',
+      args: [clone(before[index] || new Item())],
+      returnValue: index !== before.length,
+      result: [...before],
+    };
+  },
 
   //peek(i)
   function(before) {
     if (before.length < 1) {
-      return null;
+      return {
+        name: 'peek',
+        args: [0],
+        shouldError: true,
+      }
     }
     const index = Math.floor(Math.random() * before.length);
     return {
@@ -441,6 +464,14 @@ const randomStepGenerators = [
       returnValue: clone(before[index]),
       result: [...before]
     };
+  },
+
+  function(before) {
+    return {
+      name: 'peek',
+      args: [before.length + 1],
+      shouldError: true,
+    }
   },
 
   //peekFirst()
@@ -483,7 +514,13 @@ const randomStepGenerators = [
     };
   },
 
-  //sorted(comparator)
-
   //toArray()
+  function(before) {
+    return {
+      name: 'toArray',
+      args: [],
+      returnValue: before,
+      result: [...before],
+    };
+  },
 ]
