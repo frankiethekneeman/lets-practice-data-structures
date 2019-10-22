@@ -2,6 +2,8 @@ const expect = require('chai').expect;
 const {randInt, seq, Item, clone} = require('./utils');
 const RandomBehaviourTester = require('./RandomBehaviourTester');
 
+const RAND_BEHAVIOUR_MULTIPLIER = 20;
+
 const anItem = new Item();
 const anotherItem = new Item();
 module.exports = function(ListImpl) {
@@ -338,7 +340,7 @@ module.exports = function(ListImpl) {
         const randomizer = new RandomBehaviourTester(list, [], randomStepGenerators, function (underTest, result) {
           expect(underTest.toArray()).to.deep.equal(result);
         }, this);
-        randomizer.test(10* randomStepGenerators.length);
+        randomizer.test(RAND_BEHAVIOUR_MULTIPLIER * randomStepGenerators.length);
       });
     });
   });
@@ -395,7 +397,11 @@ const randomStepGenerators = [
   //remove(i)
   function(before) {
     if (before.length < 1) {
-      return null;
+      return {
+        name: 'remove',
+        args: [0],
+        shouldError: true,
+      }
     }
     const index = Math.floor(Math.random() * before.length);
     return {

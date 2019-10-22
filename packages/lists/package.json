@@ -26,7 +26,8 @@
   "scripts": {
     "test": "mocha",
     "test-reference-impls": "TEST_SET=reference mocha",
-    "test-all": "TEST_SET=all mocha"
+    "test-all": "TEST_SET=all mocha",
+    "benchmark": "node test/bench.js"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -34,6 +35,9 @@
     "mocha-simple-html-reporter": "^1.1.0"
   },
   "dependencies": {
+    "benchmark": "^2.1.4",
+    "colors": "^1.4.0",
+    "microtime": "^3.0.0",
+    "table": "^5.4.6"
   }
 }
-
