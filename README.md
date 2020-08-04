@@ -2,7 +2,7 @@
 Maybe.  I mean, I dunno - at this point we're all pulling standard library implementations
 of all of these things like 90% of the time.  But they do matter in interviews. And if you're
 prepping for an interview, you should practice them.  Your interviewer wants you to be able
-to rattle of a simple linked list in 10 minutes so you can get on to actually solving the problem!
+to rattle off a simple linked list in 10 minutes so you can get on to actually solving the problem!
 But how?  Do you read a bunch of articles about them?  Maybe code one up in your free time?
 How will you know if you've done enough?  How will you know if you're doing it right?  Fast enough?
 
@@ -21,20 +21,20 @@ it's the only available datastructure currently.
 ## Datastructures Available and Planned
 
 ### Lists
+- [x] Stack
+- [ ] Queue
 - [x] ArrayList
 - [x] SinglyLinkedList
 - [x] DoublyLinkedList
-- [ ] Stack
-- [ ] Queue
 - [ ] SortedLinkedList
 - [ ] SortedArrayList
 
 ### Trees
+- [ ] MinHeap
+- [ ] MaxHeap
 - [ ] BinarySearchTree
 - [ ] RedBlackTree
 - [ ] AVLTree
-- [ ] MinHeap
-- [ ] MaxHeap
 
 ### Sets
 - [ ] HashSet

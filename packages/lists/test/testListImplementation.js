@@ -338,7 +338,7 @@ module.exports = function(ListImpl) {
         const randomizer = new RandomBehaviourTester(list, [], randomStepGenerators, function (underTest, result) {
           expect(underTest.toArray()).to.deep.equal(result);
         }, this);
-        randomizer.test(10* randomStepGenerators.length);
+        randomizer.test(10 * randomStepGenerators.length);
       });
     });
   });
@@ -349,7 +349,7 @@ module.exports = function(ListImpl) {
  *  Returns an object shaped like:
  *  {
  *    name        //string name of the function
- *    arguments   // an array of arguments for the item
+ *    args        // an array of arguments for the item
  *    returnValue // the expected return value for the item
  *    result      // the expected state of the list after the operation, as an array.
  *    shouldError // true if and only if the call should throw an exception.  All
