@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "test-reference-impls": "TEST_SET=reference mocha",
-    "test-all": "TEST_SET=all mocha"
+    "test-all": "TEST_SET=all mocha",
+    "postinstall": "lerna bootstrap"
   },
   "author": "Francis Sirizzotti",
   "license": "ISC",
