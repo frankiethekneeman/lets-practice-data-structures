@@ -7,6 +7,7 @@ class LinkedListBasedStack {
   /****************
    * MODIFICATION *
    ****************/
+
   /**
    *  @timeComplexity O(1)
    *  @spaceComplexity O(1) - though the nature of that constant performance depends on implementation.
@@ -33,6 +34,10 @@ class LinkedListBasedStack {
     this._head = this._head.next;
     return toReturn;
   }
+
+  /*****************
+   * INTERROGATION *
+   *****************/
 
   /**
    *  @timeComplexity O(1)

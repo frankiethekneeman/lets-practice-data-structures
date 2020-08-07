@@ -35,6 +35,10 @@ class DynamicArrayBasedStack {
     return this._storage[--this._next];
   }
 
+  /*****************
+   * INTERROGATION *
+   *****************/
+
   /**
    *  @timeComplexity O(1)
    *  @spaceComplexity O(1)

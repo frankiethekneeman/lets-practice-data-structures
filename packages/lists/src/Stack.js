@@ -1,11 +1,11 @@
 /**
- *  Stacks are First in, first out data structures with only two modification behaviours:
+ *  Stacks are Last in, first out data structures with only two modification behaviours:
  *    Push: Add something to the stack
  *    Pop: Remove the last thing that was pushed.
  */
 class Stack {
   /**
-   *  Not much to construct for a stack.
+   *  Stack Constructors take no arguments.
    */
   constructor() {
   }
@@ -13,6 +13,7 @@ class Stack {
   /****************
    * MODIFICATION *
    ****************/
+
   /**
    *  Push a new item onto the stack.  This should error if the item is null or undefined.
    *  
@@ -34,6 +35,11 @@ class Stack {
    */
   pop() {
   }
+
+  
+  /*****************
+   * INTERROGATION *
+   *****************/
 
   /**
    *  Return the most recent item pushed to the stack, but leave it on the top of the stack.
