@@ -22,7 +22,7 @@ it's the only available datastructure currently.
 
 ### Lists
 - [x] Stack
-- [ ] Queue
+- [x] Queue
 - [x] ArrayList
 - [x] SinglyLinkedList
 - [x] DoublyLinkedList
