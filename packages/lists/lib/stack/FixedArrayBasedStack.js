@@ -12,6 +12,7 @@ class FixedArrayBasedStack {
   /****************
    * MODIFICATION *
    ****************/
+
   /**
    *  @timeComplexity O(1) - Amortized
    *  @spaceComplexity O(1)
@@ -46,6 +47,10 @@ class FixedArrayBasedStack {
     }
     return this._storage[--this._next];
   }
+
+  /*****************
+   * INTERROGATION *
+   *****************/
 
   /**
    *  @timeComplexity O(1)
