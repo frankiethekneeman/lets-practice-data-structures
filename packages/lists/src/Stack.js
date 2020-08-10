@@ -8,8 +8,7 @@ class Stack {
    *  Stack Constructors take no arguments.
    */
   constructor() {
-    this._storage = [];
-    this._next = 0;
+    this._head = null;
 
   }
   
@@ -28,10 +27,12 @@ class Stack {
   push(item) {
     if (!item) {
       throw `This ${item} is null or undefined.`
-    } else {
-      this._storage[this._next] = item;
-      this._next++;
-    }
+    } 
+    
+    this._head = {
+      item: item,
+      next: this._head,
+    };
   }
 
   /**
@@ -45,11 +46,14 @@ class Stack {
   pop() {
     if(this.isEmpty()) {
       throw `This is an empty stack`;
-    } else {
-      this._next--;
-      return this._storage[this._next];
-    };
-  }
+    }
+
+    const toReturn = this._head.item;
+    this._head = this._head.next;
+   
+    return toReturn;
+  
+  };
 
   
   /*****************
@@ -68,7 +72,7 @@ class Stack {
     if(this.isEmpty()){
       throw `This is an empty stack`;
     } else {
-      return this._storage[this._next - 1];
+      return this._head.item;
     }
   }
 
@@ -80,11 +84,7 @@ class Stack {
    *  @spaceComplexity O(1)
    */
   isEmpty() {
-    if(this._next === 0) {
-      return true;
-    } else {
-      return false;
-    };
+    return this._head === null;
   }
 }
 
