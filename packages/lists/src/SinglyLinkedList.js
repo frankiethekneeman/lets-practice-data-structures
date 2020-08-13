@@ -30,7 +30,7 @@ class SinglyLinkedList {
   }
 
   /**
-   *  Add the item to the beginning of the list.  This should error if 
+   *  Add the item to the end of the list.  This should error if 
    *  the item is null or undefined.
    *  
    *  equivalent to `insert(length, item)`

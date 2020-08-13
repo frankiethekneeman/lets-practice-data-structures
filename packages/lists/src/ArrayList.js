@@ -24,7 +24,7 @@ class ArrayList {
   /**
    *  Not all ArrayLists provide an initial capacity constructor, but we've chosen to do so here.
    *  
-   *  @param initialCapacity - a decent guess at the eventuall size of the list, so an array
+   *  @param initialCapacity - a decent guess at the eventual size of the list, so an array
    *  of that size can be preallocated.
    */
   constructor(initialCapacity = 10) {
@@ -48,7 +48,7 @@ class ArrayList {
   }
 
   /**
-   *  Add the item to the beginning of the list.  This should error if 
+   *  Add the item to the end of the list.  This should error if 
    *  the item is null or undefined.
    *  
    *  equivalent to `insert(length, item)`
