@@ -14,10 +14,10 @@ class ArrayList {
    */
   static getArray(size) {
     const toReturn = new Array(size);
-    Object.seal(toReturn);
     for (let i = 0; i < size; i++) {
       toReturn[i] = null;
     }
+    Object.seal(toReturn);
     return toReturn;
   }
 
