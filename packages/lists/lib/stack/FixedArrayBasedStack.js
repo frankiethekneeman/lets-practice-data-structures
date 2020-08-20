@@ -1,11 +1,11 @@
-let getArray = require('../array/ReferenceArrayList').getArray;
+let getFixedArray = require('../../util/getFixedArray');
 /**
  *  We use the `getArray` method from ArrayLists simulate an array in a language
  *  with fixed arrays.
  */
 class FixedArrayBasedStack {
   constructor(initialCapacity = 10) {
-    this._storage = getArray(initialCapacity);
+    this._storage = getFixedArray(initialCapacity);
     this._next = 0;
   }
   
@@ -30,7 +30,7 @@ class FixedArrayBasedStack {
 
   //This is a private function to double the size of the internal storage.
   _expand() {
-    const newStorage = getArray(this._storage.length * 2);
+    const newStorage = getFixedArray(this._storage.length * 2);
     for (let i = 0; i < this._next; i++) {
       newStorage[i] = this._storage[i];
     }

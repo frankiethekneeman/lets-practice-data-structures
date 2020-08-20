@@ -1,26 +1,13 @@
+const getFixedArray = require('../util/getFixedArray');
+
 /**
  *  Arraylists use arrays as the underlying storage mechanism.  In Javascript, arrays are already
  *  unbounded - so there's not really a lot of upside to an arraylist implementation.  To practice
  *  arraylists as they must be implemented in languages with fixed size arrays, we recommend
- *  leveraging the provided `getArray` method, which uses Object.seal() to fix the length
+ *  leveraging the provided `getFixedArray` method, which uses Object.seal() to fix the length
  *  of the array.
  */
 class ArrayList {
-  /**
-   *  Get a fixed size array initialized entirely to nulls.
-   *  
-   *  @param size an integer greater than or equal to zero.
-   *  @return a sealed array of size nulls.
-   */
-  static getArray(size) {
-    const toReturn = new Array(size);
-    for (let i = 0; i < size; i++) {
-      toReturn[i] = null;
-    }
-    Object.seal(toReturn);
-    return toReturn;
-  }
-
   /**
    *  Not all ArrayLists provide an initial capacity constructor, but we've chosen to do so here.
    *  
