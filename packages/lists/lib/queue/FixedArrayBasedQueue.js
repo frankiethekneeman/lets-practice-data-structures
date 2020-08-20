@@ -1,4 +1,4 @@
-let getArray = require('../array/ReferenceArrayList').getArray;
+const getFixedArray = require('../../util/getFixedArray');
 
 /**
  *  Dynmaic arrays don't really gain you much with queues, as either the enqueue or dequeue
@@ -7,7 +7,7 @@ let getArray = require('../array/ReferenceArrayList').getArray;
  */
 class ArrayBasedQueue {
   constructor(initialCapacity = 10) {
-    this._storage = getArray(initialCapacity);
+    this._storage = getFixedArray(initialCapacity);
     this._head = 0;
     this._next = 0;
   }
@@ -35,7 +35,7 @@ class ArrayBasedQueue {
    *  Private method to expand the storage.
    */
   _expand() {
-    const newStorage = getArray(this._storage.length * 2);
+    const newStorage = getFixedArray(this._storage.length * 2);
 
     // Copy the old queue into the new queue - in order to preserve the circular nature of the
     // array you absolutely have to line it back up at zero again.

@@ -1,25 +1,16 @@
+const getFixedArray = require('../../util/getFixedArray');
+
 /**
  *  Arraylists use arrays as the underlying storage mechanism.  In Javascript, arrays are already
  *  unbounded - so there's not really a lot of upside to an arraylist implementation.  To practice
  *  arraylists as they must be implemented in languages with fixed size arrays, we recommend
- *  leveraging the provided `getArray` method, which uses Object.seal() to fix the length
+ *  leveraging the provided `getFixedArray` method, which uses Object.seal() to fix the length
  *  of the array.
  */
 class ReferenceArrayList {
 
-  static getArray(size) {
-    const toReturn = new Array();
-    for (let i = 0; i < size; i++) {
-      toReturn.push(null);
-    }
-    Object.seal(toReturn);
-    return toReturn;
-  }
-
-  /**
-   */
   constructor(initialCapacity = 10) {
-    this._storage = ReferenceArrayList.getArray(initialCapacity);
+    this._storage = getFixedArray(initialCapacity);
     this._size = 0;
   }
 
@@ -56,7 +47,7 @@ class ReferenceArrayList {
    *  carefully copy everything into it.
    */
   _expand() {
-    const newStorage = ReferenceArrayList.getArray(this._storage.length * 2);
+    const newStorage = getFixedArray(this._storage.length * 2);
     for (let i = 0; i < this._size; i++) {
       newStorage[i] = this._storage[i];
     }
