@@ -21,7 +21,7 @@ class ArrayBasedQueue {
    */
   enqueue(item) {
     if (!item) {
-      throw `Cannot enqueue ${item}`;
+      throw new Error(`Cannot enqueue ${item}`);
     }
     if (this._isFull()) {
       //If the queue is full, we have to increase capacity before we enqueue.
@@ -59,7 +59,7 @@ class ArrayBasedQueue {
    */
   dequeue() {
     if (this.isEmpty()) {
-      throw 'Cannot dequeue from an empty queue';
+      throw new Error('Cannot dequeue from an empty queue');
     }
     const toReturn = this._storage[this._head];
     this._head = this._increment(this._head);
@@ -76,7 +76,7 @@ class ArrayBasedQueue {
    */
   peek() {
     if (this.isEmpty()) {
-      throw 'Cannot peek on an empty queue.';
+      throw new Error('Cannot peek on an empty queue.');
     }
     return this._storage[this._head];
   }

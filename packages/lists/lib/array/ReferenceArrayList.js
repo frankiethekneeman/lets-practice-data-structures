@@ -24,10 +24,10 @@ class ReferenceArrayList {
    */
   insert(i, item) {
     if (!item) {
-      throw `${item} is not storeable.`;
+      throw new Error(`${item} is not storeable.`);
     }
     if (i > this._size || i < 0) {
-      throw `${i} is outside the bounds of this list.`;
+      throw new Error(`${i} is outside the bounds of this list.`);
     }
     // If the storage array is full, you should expand before you try to insert
     // anything.
@@ -80,7 +80,7 @@ class ReferenceArrayList {
    */
   remove(i) {
     if (i < 0 || i >= this._size) {
-      throw `${i} lies outside the bounds of this list.`;
+      throw new Error(`${i} lies outside the bounds of this list.`);
     }
 
     this._size--;
@@ -150,7 +150,7 @@ class ReferenceArrayList {
    */
   peek(i) {
     if (i < 0 || i >= this._size) {
-      throw `${i} lies outside the bounds of this list.`;
+      throw new Error(`${i} lies outside the bounds of this list.`);
     }
     return this._storage[i];
   }
