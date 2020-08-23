@@ -15,7 +15,7 @@ class LengthTrackingSinglyLinkedListWithTailPointer {
    */
   insert(i, item) {
     if (!item) {
-      throw `${item} is not storeable.`;
+      throw new Error(`${item} is not storeable.`);
     }
     // This case is equivalent to prepend, so just delegate it.
     if (i === 0) {
@@ -32,7 +32,7 @@ class LengthTrackingSinglyLinkedListWithTailPointer {
 
     // If we've walked off the end of the array, that's an error.
     if (previous === null) {
-      throw `${i} is outside the range of this list.`;
+      throw new Error(`${i} is outside the range of this list.`);
     }
 
     // Otherwise, the new item goes in right after this one, so make a new
@@ -51,7 +51,7 @@ class LengthTrackingSinglyLinkedListWithTailPointer {
    */
   append(item) {
     if (!item) {
-      throw `${item} is not storeable.`;
+      throw new Error(`${item} is not storeable.`);
     }
     // If the list is empty, the prepend and append are the same, so delegate to it.
     if (this._length === 0) {
@@ -73,7 +73,7 @@ class LengthTrackingSinglyLinkedListWithTailPointer {
    */
   prepend(item) {
     if (!item) {
-      throw `${item} is not storeable.`;
+      throw new Error(`${item} is not storeable.`);
     }
     // Create a new node, with the current head as the next node.
     // then set the new node as the head.
@@ -98,7 +98,7 @@ class LengthTrackingSinglyLinkedListWithTailPointer {
       // the only difference is that if the list is empty, we should
       // throw an exception.
       if (this._length === 0) {
-        throw `${i} is not an index present in this list.`;
+        throw new Error(`${i} is not an index present in this list.`);
       }
       // then delegate.
       return this.removeFirst()
@@ -112,7 +112,7 @@ class LengthTrackingSinglyLinkedListWithTailPointer {
     // If there's nothing to eliminate, you've walked off the end of the 
     // list
     if (eliminated === null) {
-      throw `${i} is not an index present in this list`;
+      throw new Error(`${i} is not an index present in this list`);
     }
 
     // Circumvent the eliminated node.
@@ -216,7 +216,7 @@ class LengthTrackingSinglyLinkedListWithTailPointer {
   peek(i) {
     const node = this._getNthNode(i);
     if (node === null) {
-      throw `${i} is outside the bounds of this list.`;
+      throw new Error(`${i} is outside the bounds of this list.`);
     }
     return node.item;
   }

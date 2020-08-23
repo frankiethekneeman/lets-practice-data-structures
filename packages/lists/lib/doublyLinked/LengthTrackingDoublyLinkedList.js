@@ -12,10 +12,10 @@ class LengthTrackingDoublyLinkedList {
    */
   insert(i, item) {
     if (!item) {
-      throw `${item} is not storable`;
+      throw new Error(`${item} is not storable`);
     }
     if (i > this._size || i < 0) {
-      throw `${i} is outside the bounds of this list`;
+      throw new Error(`${i} is outside the bounds of this list`);
     }
     if (i === 0) {
       return this.prepend(item);
@@ -45,7 +45,7 @@ class LengthTrackingDoublyLinkedList {
    */
   append(item) {
     if (!item) {
-      throw `${item} is not storable`;
+      throw new Error(`${item} is not storable`);
     }
     if (this._head === null) {
       return this.prepend(item);
@@ -65,7 +65,7 @@ class LengthTrackingDoublyLinkedList {
    */
   prepend(item) {
     if (!item) {
-      throw `${item} is not storable`;
+      throw new Error(`${item} is not storable`);
     }
     this._head = {
       item: item,
@@ -86,10 +86,10 @@ class LengthTrackingDoublyLinkedList {
    */
   remove(i) {
     if (this._head === null) {
-      throw "Cannot Remove from an empty list.";
+      throw new Error("Cannot Remove from an empty list.");
     }
     if (i < 0 || i >= this._size) {
-      throw `${i} is outside the bounds of this list`;
+      throw new Error(`${i} is outside the bounds of this list`);
     }
     if (i === 0) {
       return this.removeFirst();
@@ -208,7 +208,7 @@ class LengthTrackingDoublyLinkedList {
       position++;
     }
     if (current === null) {
-      throw `${i} is outside the bounds of this list`;
+      throw new Error(`${i} is outside the bounds of this list`);
     }
     return current.item;
   }

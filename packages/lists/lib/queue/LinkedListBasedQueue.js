@@ -16,7 +16,7 @@ class LinkedListBasedQueue {
    */
   enqueue(item) {
     if (!item) {
-      throw `Cannot enqueue ${item}`;
+      throw new Error(`Cannot enqueue ${item}`);
     }
     const newNode = {
       item: item,
@@ -40,7 +40,7 @@ class LinkedListBasedQueue {
    */
   dequeue() {
     if (this.isEmpty()) {
-      throw 'Cannot dequeue from an empty queue';
+      throw new Error('Cannot dequeue from an empty queue');
     }
     const toReturn = this._head.item;
     this._head = this._head.next;
@@ -63,7 +63,7 @@ class LinkedListBasedQueue {
    */
   peek() {
     if (this.isEmpty()) {
-      throw 'Cannot peek on an empty queue.';
+      throw new Error('Cannot peek on an empty queue.');
     }
     return this._head.item;
   }

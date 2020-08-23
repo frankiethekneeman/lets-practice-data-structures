@@ -19,7 +19,7 @@ class FixedArrayBasedStack {
    */
   push(item) {
     if (!item) {
-      throw `${item} is not storeable}`;
+      throw new Error(`${item} is not storeable}`);
     }
     //If there's no space left in the storage array, you'll need to expand.
     if (this._next === this._storage.length) {
@@ -43,7 +43,7 @@ class FixedArrayBasedStack {
    */
   pop() {
     if (this.isEmpty()) {
-      throw "Pop on an empty stack.";
+      throw new Error("Pop on an empty stack.");
     }
     return this._storage[--this._next];
   }
@@ -58,7 +58,7 @@ class FixedArrayBasedStack {
    */
   peek() {
     if (this.isEmpty()) {
-      throw "Peek on an empty stack.";
+      throw new Error("Peek on an empty stack.");
     }
     return this._storage[this._next - 1];
   }
