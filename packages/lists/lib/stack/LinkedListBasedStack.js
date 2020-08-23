@@ -14,7 +14,7 @@ class LinkedListBasedStack {
    */
   push(item) {
     if (!item) {
-      throw `${item} is not storeable}`;
+      throw new Error(`${item} is not storeable}`);
     }
     this._head = {
       item: item,
@@ -28,7 +28,7 @@ class LinkedListBasedStack {
    */
   pop() {
     if (this.isEmpty()) {
-      throw "Pop on an empty stack.";
+      throw new Error("Pop on an empty stack.");
     }
     let toReturn = this._head.item;
     this._head = this._head.next;
@@ -45,7 +45,7 @@ class LinkedListBasedStack {
    */
   peek() {
     if (this.isEmpty()) {
-      throw "Peek on an empty stack.";
+      throw new Error("Peek on an empty stack.");
     }
     return this._head.item;
   }

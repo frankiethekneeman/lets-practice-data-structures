@@ -18,7 +18,7 @@ class DynamicArrayBasedStack {
    */
   push(item) {
     if (!item) {
-      throw `${item} is not storeable}`;
+      throw new Error(`${item} is not storeable}`);
     }
     //Make sure you're incrementing the position point 
     this._storage[this._next++] = item;
@@ -30,7 +30,7 @@ class DynamicArrayBasedStack {
    */
   pop() {
     if (this.isEmpty()) {
-      throw "Pop on an empty stack.";
+      throw new Error("Pop on an empty stack.");
     }
     return this._storage[--this._next];
   }
@@ -45,7 +45,7 @@ class DynamicArrayBasedStack {
    */
   peek() {
     if (this.isEmpty()) {
-      throw "Peek on an empty stack.";
+      throw new Error("Peek on an empty stack.");
     }
     return this._storage[this._next - 1];
   }

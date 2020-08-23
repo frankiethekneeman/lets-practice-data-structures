@@ -11,7 +11,7 @@ class NaiveDoublyLinkedList {
    */
   insert(i, item) {
     if (!item) {
-      throw `${item} is not storable`;
+      throw new Error(`${item} is not storable`);
     }
     if (i === 0) {
       return this.prepend(item);
@@ -23,7 +23,7 @@ class NaiveDoublyLinkedList {
       current = current.next;
     }
     if (position != i) {
-      throw `${i} is outside the bounds of this list`;
+      throw new Error(`${i} is outside the bounds of this list`);
     }
     if (current === null) {
       return this.append(item);
@@ -43,7 +43,7 @@ class NaiveDoublyLinkedList {
    */
   append(item) {
     if (!item) {
-      throw `${item} is not storable`;
+      throw new Error(`${item} is not storable`);
     }
     if (this._head === null) {
       return this.prepend(item);
@@ -62,7 +62,7 @@ class NaiveDoublyLinkedList {
    */
   prepend(item) {
     if (!item) {
-      throw `${item} is not storable`;
+      throw new Error(`${item} is not storable`);
     }
     this._head = {
       item: item,
@@ -82,7 +82,7 @@ class NaiveDoublyLinkedList {
    */
   remove(i) {
     if (this._head === null) {
-      throw "Cannot Remove from an empty list.";
+      throw new Error("Cannot Remove from an empty list.");
     }
     if (i === 0) {
       return this.removeFirst();
@@ -94,7 +94,7 @@ class NaiveDoublyLinkedList {
       current = current.next;
     }
     if (position != i) {
-      throw `${i} is outside the bounds of this list`;
+      throw new Error(`${i} is outside the bounds of this list`);
     }
     if (current.next === null) {
       return this.removeLast();
@@ -198,7 +198,7 @@ class NaiveDoublyLinkedList {
       position++;
     }
     if (current === null) {
-      throw `${i} is outside the bounds of this list`;
+      throw new Error(`${i} is outside the bounds of this list`);
     }
     return current.item;
   }
