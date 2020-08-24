@@ -33,7 +33,5 @@
     "mocha": "^6.2.0",
     "mocha-simple-html-reporter": "^1.1.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
-
