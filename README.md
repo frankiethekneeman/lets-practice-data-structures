@@ -26,8 +26,8 @@ it's the only available datastructure currently.
 - [x] ArrayList
 - [x] SinglyLinkedList
 - [x] DoublyLinkedList
-- [ ] SortedLinkedList
-- [ ] SortedArrayList
+- [x] SortedLinkedList
+- [x] SortedArrayList
 
 ### Trees
 - [ ] MinHeap
