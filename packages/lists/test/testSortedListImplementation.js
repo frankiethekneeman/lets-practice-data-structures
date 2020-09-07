@@ -1,14 +1,11 @@
-const chai = require('chai');
-const expect = chai.expect;
-const {randInt, seq, Item, clone} = require('./utils');
-const RandomBehaviourTester = require('./RandomBehaviourTester');
+const expect = require('chai').expect;
+const { Item, clone, comparator: itemComparator } = require('utilities/items');
+const { int: randInt } = require('utilities/random');
+const { seq } = require('utilities/fp');
+const RandomBehaviourTester = require('utilities/RandomBehaviourTester');
 
 const anItem = new Item();
 const anotherItem = new Item();
-
-function itemComparator(a, b) {
-  return a.value - b.value;
-}
 
 module.exports = function(SortedListImpl) {
   describe(SortedListImpl.name, () => {

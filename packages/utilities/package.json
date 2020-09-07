@@ -1,0 +1,33 @@
+{
+  "name": "utilities",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Utilities for Let's Practice Data Structures",
+  "author": "Francis Sirizzotti <francis@sirizzotti.info>",
+  "homepage": "https://github.com/frankiethekneeman/lets-practice-data-structures#readme",
+  "license": "ISC",
+  "main": "lib/utilities.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankiethekneeman/lets-practice-data-structures.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "bugs": {
+    "url": "https://github.com/frankiethekneeman/lets-practice-data-structures/issues"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-arrays": "^2.2.0",
+    "mocha": "^8.1.3",
+    "mochawesome": "^6.1.1"
+  }
+}
