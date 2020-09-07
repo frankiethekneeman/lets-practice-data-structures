@@ -3,8 +3,8 @@
   "spec": "packages/*/test/**/*.js",
   "reporter-option": [
     "autoOpen",
-    "showPassed=true",
-    "showFailed=false",
+    "showPassed=false",
+    "showFailed=true",
     "showSkipped=false",
     "showPending=false",
     "showHooks=always",

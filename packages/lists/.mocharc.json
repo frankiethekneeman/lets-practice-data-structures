@@ -1,8 +1,10 @@
 {
   "reporter": "mochawesome",
+  "spec": "test/**/*.js",
   "reporter-option": [
     "autoOpen",
-    "showPassed=true",
+    "showPassed=false",
+    "showFailed=true",
     "showSkipped=false",
     "showPending=false",
     "showHooks=always",

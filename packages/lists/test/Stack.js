@@ -1,17 +1,19 @@
+const expect = require('chai').expect;
+const { Item, clone } = require('utilities/items');
+const { int: randInt } = require('utilities/random');
+const { seq } = require('utilities/fp');
+const { getTestSet } = require('utilities/env');
+const RandomBehaviourTester = require('utilities/RandomBehaviourTester');
+
 const referenceImplementations = [
   require('../lib/stack/DynamicArrayBasedStack'),
   require('../lib/stack/FixedArrayBasedStack'),
   require('../lib/stack/LinkedListBasedStack')
 ];
+
 const userImplementations = [
   require('../src/Stack')
 ];
-
-const {getTestSet} = require('./utils');
-
-const expect = require('chai').expect;
-const {randInt, seq, Item, clone} = require('./utils');
-const RandomBehaviourTester = require('./RandomBehaviourTester');
 
 const anItem = new Item();
 const anotherItem = new Item();

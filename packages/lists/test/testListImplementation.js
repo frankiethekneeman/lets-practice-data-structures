@@ -1,9 +1,12 @@
 const expect = require('chai').expect;
-const {randInt, seq, Item, clone} = require('./utils');
-const RandomBehaviourTester = require('./RandomBehaviourTester');
+const { Item, clone } = require('utilities/items');
+const { int: randInt } = require('utilities/random');
+const { seq } = require('utilities/fp');
+const RandomBehaviourTester = require('utilities/RandomBehaviourTester');
 
 const anItem = new Item();
 const anotherItem = new Item();
+
 module.exports = function(ListImpl) {
   describe(ListImpl.name, () => {
     describe('empty lists', () => {
