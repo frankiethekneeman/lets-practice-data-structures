@@ -1,0 +1,26 @@
+{
+  "name": "trees",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "Francis Sirizzotti <francis@sirizzotti.info>",
+  "homepage": "https://github.com/frankiethekneeman/lets-practice-data-structures#readme",
+  "license": "ISC",
+  "main": "lib/trees.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankiethekneeman/lets-practice-data-structures.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/frankiethekneeman/lets-practice-data-structures/issues"
+  }
+}
